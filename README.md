@@ -8,7 +8,7 @@ Paper explaining what JOB is: [How Good Are Query Optimizers, Really?](https://w
 https://github.com/viktorleis/job
 
 # How to Use
-** Read the following list in its entirity before
+** Read the following list in its entirety before
 
 1. Run restore.sh.
 
