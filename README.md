@@ -13,23 +13,27 @@ https://github.com/viktorleis/job
 1. Run restore.sh.
 
 2. Run the script run_noise.py using the following format:
+    ```
+    python3 run_noisy.py <case> <column> <queries>
+    ```
 
-python3 run_noisy.py <case> <column> <queries>
+    where,
+    case = name of the case you are running it for. 
+    Eg: obl_wn_nullfrac for "oblivious with noisy nullfrac"
+    (by "oblivious" we mean that the whole System Catalog is erased)
+    For now use: nnf_<epsilon>, replacing <epsilon> with your choice of epsilon in the range 10 to 0.01.
 
-where,
-case = name of the case you are running it for. 
-Eg: obl_wn_nullfrac for "oblivious with noisy nullfrac"
-(by "oblivious" we mean that the whole System Catalog is erased)
-For now use: nnf_<epsilon>, replacing <epsilon> with your choice of epsilon in the range 10 to 0.01.
+    column = Name of the column of pg_statistic to be noised
+    Eg: nullfrac
+    Note: Only strings in the following list should be used for this argument: [nullfrac, correl]
 
-column = Name of the column of pg_statistic to be noised
-Eg: nullfrac
-Note: Only strings in the following list should be used for this argument: [nullfrac, correl]
+    queries = comma-separated list of queries, no spaces
+    Eg: 1a,2a
 
-queries = comma-separated list of queries, no spaces
-Eg: 1a,2a
-
-Example: python3 run_noisy.py obl_wn_nullfrac nullfrac 1a
+    Example:
+    ```
+    python3 run_noisy.py obl_wn_nullfrac nullfrac 1a,2a
+    ```
 
 This will create the following:
 1. A sub-directory called <case>_runs containing text files of query runtimes
