@@ -35,9 +35,9 @@ https://github.com/viktorleis/job
     python3 run_noisy.py obl_wn_nullfrac nullfrac 1a,2a
     ```
 
-This will create the following:
-1. A sub-directory called <case>_runs containing text files of query runtimes
-2. A subdirectory called plans, with more subdirecties of the form <case>/run, which contain text files for the query plan for that run
+    This will create the following:
+    1. A sub-directory called <case>_runs containing text files of query runtimes
+    2. A subdirectory called plans, with more subdirecties of the form <case>/run, which contain text files for the query plan for that run
 
 # Tasks
 1. Run the run_noisy.py code, either using the run_noisy.sh (note that this can take upto 7 days to finish) script or a different script you wrote or manually
