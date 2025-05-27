@@ -8,8 +8,11 @@ Paper explaining what JOB is: How [Good Are Query Optimizers, Really?]{https://w
 https://github.com/viktorleis/job
 
 # How to Use
-** Read the following list in its entirity before 
-Run the script run_noise.py using the following format:
+** Read the following list in its entirity before
+
+1. Run restore.sh.
+
+2. Run the script run_noise.py using the following format:
 
 python3 run_noisy.py <case> <column> <queries>
 
