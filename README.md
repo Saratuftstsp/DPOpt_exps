@@ -1,6 +1,6 @@
 # Introduction
 This repository contains python scripts to run JOB benchmark queries after adding different levels of noise to the System Catalog.
-Paper explaining what JOB is: How [Good Are Query Optimizers, Really?](https://www.vldb.org/pvldb/vol9/p204-leis.pdf)
+Paper explaining what JOB is: [How Good Are Query Optimizers, Really?](https://www.vldb.org/pvldb/vol9/p204-leis.pdf)
 
 # Prerequisites
 1. Install Postgres
