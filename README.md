@@ -9,7 +9,7 @@ https://github.com/viktorleis/job
 
 # How to Use
 ** Read the following list in its entirity before 
-1. Run the script run_noise.py using the following format:
+Run the script run_noise.py using the following format:
 
 python3 run_noisy.py <case> <column> <queries>
 
