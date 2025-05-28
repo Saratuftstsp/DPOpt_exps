@@ -145,10 +145,10 @@ def get_noised_col_vals(rtc, noised_col, cursor):
     return vals_lst
 
 # Noise specified columns and erase the rest
-def insert_noise_into_rtc(rtc, noised_col_lst, col_vals_dict, cursor):
+def insert_noise_into_rtc(rtc, noised_col_lst, col_vals_dict, epsilon, cursor):
    
     # 1. divide epsilon among columns to be noised
-    epsilon = 0.1
+    #epsilon = 0.1
     num_noised_col = len(noised_col_lst)
     epsilon_per_col = epsilon/num_noised_col
     num_rows = len(rtc)
@@ -372,6 +372,7 @@ def main():
     parser = argparse.ArgumentParser(description='Queries to run.')
     parser.add_argument('case', type=str, help='Name of the scenario it is, eg: oblivious_w_noisy_nullfrac')
     parser.add_argument('noised_cols', type=str, help='Name(s) of column(s) to not mask since it will be noised. Comma-separated. Enter random string if nothing is noised/everything needs to be masked/hidden.')
+    parser.add_argument('epsilon', type=str, help='Value of the total privacy budget.')
     parser.add_argument('qlist_com_sep', type=str, help='Names of queries to run, delimited by commas, no spaces.')
     
     args = parser.parse_args()
@@ -395,6 +396,7 @@ def main():
         
         #1.
         # Get the queries to run
+        eps = float(args.epsilon)
         query_files = (args.qlist_com_sep).strip().split(",") #["28a", "29a"]
         q_dict = {}
         for fname in tqdm(query_files):
@@ -417,7 +419,7 @@ def main():
         for i in range(10):
             int_start = time.time()
             #4. Add noise
-            cr = insert_noise_into_rtc(rtc, noised_col_lst, col_vals_dict, cursor)
+            cr = insert_noise_into_rtc(rtc, noised_col_lst, col_vals_dict, eps, cursor)
             print("Changed rows.")
             insert_cr_into_pg_statistic(rtc, cr, connection, cursor)
             #print("Inserted noisy/masked rows into pg_statistic.")
