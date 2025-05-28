@@ -7,5 +7,5 @@ inputs=("10a" "10b" "10c" "11a" "11b" "11c" "11d" "12a" "12b" "12c" "13a" "13b" 
 for item in "${inputs[@]}"
 do
   ./restore.sh
-  python3 run_noisy.py obl_wn_nullfrac nullfrac "$item"
+  python3 run_noisy.py obl_wn_nullfrac nullfrac 0.1 "$item"
 done
