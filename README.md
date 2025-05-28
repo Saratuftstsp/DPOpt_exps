@@ -14,7 +14,7 @@ https://github.com/viktorleis/job
 
 2. Run the script run_noise.py using the following format:
     ```
-    python3 run_noisy.py <case> <column> <queries>
+    python3 run_noisy.py <case> <column> <epsilon> <queries>
     ```
 
     where,
@@ -27,17 +27,21 @@ https://github.com/viktorleis/job
     Eg: nullfrac
     Note: Only strings in the following list should be used for this argument: [nullfrac, correl]
 
+    epsilon = choice of epsilon in the range 10 to 0.01
+
     queries = comma-separated list of queries, no spaces
     Eg: 1a,2a
 
     Example:
     ```
-    python3 run_noisy.py obl_wn_nullfrac nullfrac 1a,2a
+    python3 run_noisy.py obl_wn_nullfrac nullfrac 0.1 1a,2a
     ```
 
     This will create the following:
     1. A sub-directory called <case>_runs containing text files of query runtimes
     2. A subdirectory called plans, with more subdirecties of the form <case>/run, which contain text files for the query plan for that run
+
+    Note: Skip epsilon=0.1 because those experiments have already been run.
 
 # Tasks
 1. Run the run_noisy.py code, either using the run_noisy.sh (note that this can take upto 7 days to finish) script or a different script you wrote or manually
