@@ -12,6 +12,8 @@ def get_data(fname):
     f.close()
     return data_dict
 
+
+# function to change in case we want to plot more bars
 def plot_bars(array1, array2, array3, labels, plotname):
 
     # Number of labels
@@ -101,10 +103,12 @@ def main():
     
     #est_costs = get_data("bsl1_est_costs.txt") 
     
-
+    # 1. initialize arrays to put runtimes in for each scenario (i.e oblivious, DP_for_some_epsilon, public)
     y1, y2, y3 = [], [], []
     labels = []
+    # 2. read runtimes from the right files
     for query in rtimes_obl:
+        # leave out certain queries if there bars are making other bars appear too small
         if (query in rtimes_pub) and (query in rtimes_noisy) and (query.strip() not in ["2a", "2d", "30b", "30c", "31b","31a", "2b", "2c","11b", "11d", "13b", "13c", "14a", "20a", "21b", "21c", "23c", "24a", "24b", "25a"]):#["4a","5a","23a"]:
             pub_runtime = rtimes_pub[query]
             dp_runtime = rtimes_noisy[query]
@@ -114,6 +118,7 @@ def main():
             y3.append(1)
             labels.append(query)
     
+    # 3. Call plot_bars, passing each y list in
     for i in range(0,len(y1),10):
         plot_bars(y1[i:i+10],y2[i:i+10],y3[i:i+10],labels[i:i+10], args.case+"_"+str(i)+"_"+ str(i+10))
     plot_bars(y1[i:i+10],y2[i:i+10],y3[i:i+10],labels[i:i+10], args.case+"_"+str(i)+"_"+ str(i+10))
