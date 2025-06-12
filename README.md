@@ -43,9 +43,10 @@ https://github.com/viktorleis/job
 
     Note: Skip epsilon=0.1 because those experiments have already been run.
 
-# Tasks
-1. Run the run_noisy.py code, either using the run_noisy.sh (note that this can take upto 7 days to finish) script or a different script you wrote or manually
-2. Push the results to Github
+# Plotting Bars
+1. The main function reads the runtimes from different files. To also include bars for other epsilons, hard-code path to those files and add more y variable lists.
+2. Need to manually add "labels" to the x variable list for new bars. Right now the middle bar is labeled DP. New names can beof the form DP_{epsilon}.
+3. Manually add parameters and a call to the plot() function for more y variables
 
 # Task update
 
